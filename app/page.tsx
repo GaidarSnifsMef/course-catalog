@@ -51,6 +51,7 @@ export default async function Home() {
                 description={course.description}
                 credits={course.credits}
                 likes={course.likes}
+                imageUrl={course.imageUrl}
               />
             ))}
           </div>

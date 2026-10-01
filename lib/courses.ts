@@ -5,6 +5,7 @@ export type Course = {
   credits: number;
   isElective: boolean;
   likes: number;
+  imageUrl: string;
 };
 
 const courses: Course[] = [
@@ -15,6 +16,7 @@ const courses: Course[] = [
     credits: 5,
     isElective: false,
     likes: 24,
+    imageUrl: "https://images.unsplash.com/photo-1589134710156-df538a7cde12?w=800&q=80" // Ancient book
   },
   {
     id: "backend-fastapi",
@@ -23,6 +25,7 @@ const courses: Course[] = [
     credits: 5,
     isElective: false,
     likes: 19,
+    imageUrl: "https://images.unsplash.com/photo-1509021436665-8f07cd15a4c5?w=800&q=80" // Scroll / paper
   },
   {
     id: "databases-postgresql",
@@ -31,6 +34,7 @@ const courses: Course[] = [
     credits: 5,
     isElective: false,
     likes: 15,
+    imageUrl: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=800&q=80" // University library
   },
   {
     id: "api-design",
@@ -39,6 +43,7 @@ const courses: Course[] = [
     credits: 4,
     isElective: true,
     likes: 11,
+    imageUrl: "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=800&q=80" // Study table
   },
   {
     id: "web-security",
@@ -47,6 +52,7 @@ const courses: Course[] = [
     credits: 4,
     isElective: false,
     likes: 21,
+    imageUrl: "https://images.unsplash.com/photo-1614035041490-c2bd86b0da66?w=800&q=80" // Castle walls / lock
   },
   {
     id: "ai-integration",
@@ -55,6 +61,7 @@ const courses: Course[] = [
     credits: 5,
     isElective: true,
     likes: 32,
+    imageUrl: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80" // Brain / intricate clockwork
   },
 ];
 
