@@ -1,21 +1,22 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Cinzel, Cormorant_Garamond } from "next/font/google";
 import Link from "next/link";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const cinzel = Cinzel({
+  variable: "--font-cinzel",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const cormorant = Cormorant_Garamond({
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-cormorant",
   subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
-  title: "Course Catalog",
-  description: "Advanced Web Technologies Course Catalog",
+  title: "Scholars' Guild",
+  description: "An archive of ancient wisdom and courses.",
 };
 
 export default function RootLayout({
@@ -24,17 +25,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col font-sans bg-white dark:bg-zinc-950 text-zinc-950 dark:text-zinc-50">
-        <header className="sticky top-0 z-10 bg-white/90 dark:bg-zinc-950/90 backdrop-blur-md border-b border-zinc-200 dark:border-zinc-800">
-          <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-            <Link href="/" className="font-bold text-lg tracking-tight">
-              CourseCatalog
+    <html lang="en" suppressHydrationWarning className={`${cinzel.variable} ${cormorant.variable} h-full antialiased`}>
+      <body className="min-h-full flex flex-col font-cormorant bg-[#f4ebd8] dark:bg-[#1a1110] text-[#2c1c16] dark:text-[#e8dcb8] bg-[url('https://www.transparenttextures.com/patterns/aged-paper.png')] dark:bg-[url('https://www.transparenttextures.com/patterns/dark-leather.png')]">
+        <header className="sticky top-0 z-10 bg-[#f4ebd8]/90 dark:bg-[#1a1110]/95 backdrop-blur-md border-b-2 border-[#8b7355] dark:border-[#d4af37] shadow-md shadow-[#8b7355]/20 dark:shadow-[#d4af37]/10">
+          <nav className="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+            <Link href="/" className="font-cinzel font-bold text-2xl tracking-widest text-[#5c3a21] dark:text-[#d4af37] flex items-center gap-3">
+              <span className="text-3xl">⚜</span> Scholars' Guild
             </Link>
-            <div className="flex gap-6 text-sm font-medium text-zinc-600 dark:text-zinc-400">
-              <Link href="/" className="hover:text-zinc-950 dark:hover:text-zinc-50 transition-colors">Home</Link>
-              <Link href="/courses" className="hover:text-zinc-950 dark:hover:text-zinc-50 transition-colors">Courses</Link>
-              <Link href="/about" className="hover:text-zinc-950 dark:hover:text-zinc-50 transition-colors">About</Link>
+            <div className="flex gap-8 text-xl font-bold text-[#5c3a21] dark:text-[#c4a45d]">
+              <Link href="/" className="hover:text-[#8b0000] dark:hover:text-white transition-colors uppercase tracking-widest">Tavern</Link>
+              <Link href="/courses" className="hover:text-[#8b0000] dark:hover:text-white transition-colors uppercase tracking-widest">Tomes</Link>
+              <Link href="/about" className="hover:text-[#8b0000] dark:hover:text-white transition-colors uppercase tracking-widest">Chronicles</Link>
             </div>
           </nav>
         </header>

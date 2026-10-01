@@ -13,44 +13,51 @@ type CourseCardProps = {
 
 export default function CourseCard({ id, title, description, credits, likes }: CourseCardProps) {
   return (
-    <Link href={`/courses/${id}`} className="block h-full outline-none focus-visible:ring-2 focus-visible:ring-zinc-950 dark:focus-visible:ring-white rounded-xl group">
-      <Card className="h-full flex flex-col hover:shadow-lg dark:hover:shadow-zinc-800/50 transition-all cursor-pointer overflow-hidden border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950">
+    <Link href={`/courses/${id}`} className="block h-full outline-none focus-visible:ring-4 focus-visible:ring-[#8b0000] rounded-sm group relative">
+      {/* Decorative corners */}
+      <div className="absolute -top-1 -left-1 w-4 h-4 border-t-2 border-l-2 border-[#8b7355] dark:border-[#d4af37] z-10 transition-transform group-hover:-translate-x-1 group-hover:-translate-y-1"></div>
+      <div className="absolute -top-1 -right-1 w-4 h-4 border-t-2 border-r-2 border-[#8b7355] dark:border-[#d4af37] z-10 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"></div>
+      <div className="absolute -bottom-1 -left-1 w-4 h-4 border-b-2 border-l-2 border-[#8b7355] dark:border-[#d4af37] z-10 transition-transform group-hover:-translate-x-1 group-hover:translate-y-1"></div>
+      <div className="absolute -bottom-1 -right-1 w-4 h-4 border-b-2 border-r-2 border-[#8b7355] dark:border-[#d4af37] z-10 transition-transform group-hover:translate-x-1 group-hover:translate-y-1"></div>
+
+      <Card className="h-full flex flex-col hover:shadow-2xl transition-all duration-300 cursor-pointer overflow-hidden border-2 border-[#8b7355] dark:border-[#b5952f] bg-[#fffcf5] dark:bg-[#2a1b18] rounded-sm">
         
-        {/* Monochrome Thumbnail */}
-        <div className="h-36 w-full bg-zinc-100 dark:bg-zinc-900 border-b border-zinc-200 dark:border-zinc-800 relative overflow-hidden">
-           {/* Abstract geometric monochrome pattern */}
-           <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_center,_black_1px,_transparent_1px)] dark:bg-[radial-gradient(circle_at_center,_white_1px,_transparent_1px)] bg-[size:16px_16px]"></div>
-           <div className="absolute inset-0 flex items-center justify-center">
-             <div className="w-16 h-16 border-2 border-zinc-950 dark:border-white rounded-full opacity-10 group-hover:scale-110 transition-transform duration-500"></div>
+        {/* Ancient book spine / Thumbnail */}
+        <div className="h-40 w-full bg-[#3a2212] dark:bg-[#110a09] border-b-4 border-double border-[#8b7355] dark:border-[#d4af37] relative overflow-hidden flex items-center justify-center shadow-inner">
+           <div className="absolute inset-0 opacity-40 bg-[url('https://www.transparenttextures.com/patterns/black-linen-2.png')] mix-blend-multiply"></div>
+           {/* Emblem */}
+           <div className="relative w-20 h-20 border-2 border-[#d4af37] rounded-full flex items-center justify-center opacity-90 group-hover:rotate-12 transition-transform duration-700 shadow-[0_0_15px_rgba(212,175,55,0.4)]">
+             <div className="absolute inset-2 border border-[#d4af37] rounded-full"></div>
+             <span className="font-cinzel text-3xl text-[#d4af37]">⚔</span>
            </div>
         </div>
 
-        <CardHeader className="p-5 pb-2">
-          <div className="flex items-center gap-2 mb-2">
-            <span className="text-xs font-bold text-zinc-950 dark:text-white uppercase tracking-wider">IITU University</span>
+        <CardHeader className="p-6 pb-2 relative">
+          <div className="flex items-center gap-2 mb-3">
+            <span className="font-cinzel text-xs font-bold text-[#8b0000] dark:text-[#d4af37] uppercase tracking-[0.2em] border-b border-[#8b0000] dark:border-[#d4af37]">The Royal Archive</span>
           </div>
-          <CardTitle className="text-lg font-bold leading-tight group-hover:underline decoration-2 underline-offset-2">{title}</CardTitle>
-          <CardDescription className="line-clamp-2 mt-2 text-sm text-zinc-600 dark:text-zinc-400">{description}</CardDescription>
+          <CardTitle className="font-cinzel text-2xl font-bold leading-tight text-[#2c1c16] dark:text-[#e8dcb8] group-hover:text-[#8b0000] dark:group-hover:text-[#d4af37] transition-colors">{title}</CardTitle>
+          <CardDescription className="font-cormorant line-clamp-3 mt-3 text-lg text-[#5c3a21] dark:text-[#c4a45d] leading-snug italic">{description}</CardDescription>
         </CardHeader>
         
-        <CardContent className="flex-grow p-5 pt-2 pb-0">
-          <div className="text-xs font-medium text-zinc-500 dark:text-zinc-400 mb-4">
-            Skills: Frontend, React, System Design
+        <CardContent className="flex-grow p-6 pt-2 pb-0">
+          <div className="font-cormorant text-sm font-semibold text-[#8b7355] dark:text-[#a0844f] mb-4 tracking-widest uppercase">
+            Arts: Logic, Arithmetic, Geometry
           </div>
         </CardContent>
 
-        <CardFooter className="p-5 pt-4 border-t border-zinc-100 dark:border-zinc-900 flex flex-col gap-3">
-          <div className="flex items-center gap-1.5 self-start">
-             <span className="text-sm font-bold text-zinc-950 dark:text-white">{(4.5 + (likes % 5) * 0.1).toFixed(1)}</span>
-             <Star className="w-4 h-4 fill-zinc-950 text-zinc-950 dark:fill-white dark:text-white" />
-             <span className="text-xs text-zinc-500 dark:text-zinc-400 ml-1">({likes * 120} reviews)</span>
+        <CardFooter className="p-6 pt-4 border-t border-dashed border-[#8b7355] dark:border-[#5c3a21] flex flex-col gap-4">
+          <div className="flex items-center gap-2 self-start font-cormorant">
+             <span className="text-lg font-bold text-[#2c1c16] dark:text-[#d4af37]">{(4.5 + (likes % 5) * 0.1).toFixed(1)}</span>
+             <Star className="w-5 h-5 fill-[#8b0000] text-[#8b0000] dark:fill-[#d4af37] dark:text-[#d4af37]" />
+             <span className="text-sm text-[#5c3a21] dark:text-[#c4a45d] ml-1 italic">({likes * 120} scholars agree)</span>
           </div>
           
           <div className="flex justify-between items-center w-full">
-            <Badge variant="outline" className="text-xs font-medium border-zinc-950 text-zinc-950 dark:border-white dark:text-white rounded-md">
-              {credits} {credits === 1 ? 'credit' : 'credits'}
+            <Badge variant="outline" className="font-cinzel text-xs font-bold border-2 border-[#8b7355] text-[#5c3a21] dark:border-[#d4af37] dark:text-[#d4af37] rounded-none px-3 py-1 bg-[#fffcf5] dark:bg-[#1a1110]">
+              {credits} {credits === 1 ? 'Volume' : 'Volumes'}
             </Badge>
-            <span className="text-xs text-zinc-500 dark:text-zinc-400 font-medium">{likes * 450} students</span>
+            <span className="font-cormorant text-md text-[#5c3a21] dark:text-[#a0844f] font-bold italic">{likes * 450} Disciples</span>
           </div>
         </CardFooter>
       </Card>
